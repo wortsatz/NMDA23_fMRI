@@ -1,4 +1,4 @@
-% This batch script analyses the Auditory fMRI dataset available from the 
+ % This batch script analyses the Auditory fMRI dataset available from the 
 % SPM website:
 %   http://www.fil.ion.ucl.ac.uk/spm/data/auditory/
 % as described in the SPM manual:
@@ -22,21 +22,21 @@ unzip(fullfile(data_path,'MoAEpilot.zip'));
 fprintf(' %30s\n', '...done');
 
 %%
-%(TL) add path to spm and cd into directory contraining Auditory data
+%(TL) add path to spm directory 
 whichComp=1;
 
 if whichComp==1
     spmPath='/Users/ttli/Dropbox/spm12';
-    data_path='/Users/ttli/Dropbox/Mac (2)/Documents/GitHub/NMDA23/data/auditory';
+    %data_path='/Users/ttli/Documents/GitHub/NMDA23/data/auditory';
 elseif whichComp==2
     spmPath='/Users/USERNAME/WHERE/spm12';
-    data_path='ADD';
+    %data_path='ADD';
 elseif whichComp==3 
     spmPath='/Users/USERNAME/WHERE/spm12';
-    data_path='ADD';
+    %data_path='ADD';
 else
     spmPath='/Users/USERNAME/WHERE/spm12';
-    data_path='ADD';
+    %data_path='ADD';
 end
 cd(data_path)
 addpath(spmPath)
