@@ -11,8 +11,7 @@
 
 % Directory containing the Auditory data
 
-% (TL) if you have github local directory set up then you don't need to run
-% this first cell
+% (TL) needed to update matlab license for things to work properly 0:
 %--------------------------------------------------------------------------
 data_path = fileparts(mfilename('fullpath'));
 if isempty(data_path), data_path = pwd; end %(TL) just navigate to github NMDA23 folder 
