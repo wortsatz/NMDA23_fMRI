@@ -10,13 +10,38 @@
 % $Id: auditory_spm12_batch.m 8 2014-09-29 18:11:56Z guillaume $
 
 % Directory containing the Auditory data
+
+% (TL) if you have github local directory set up then you don't need to run
+% this first cell
 %--------------------------------------------------------------------------
 data_path = fileparts(mfilename('fullpath'));
-if isempty(data_path), data_path = pwd; end
+if isempty(data_path), data_path = pwd; end %(TL) just navigate to github NMDA23 folder 
 fprintf('%-40s:', 'Downloading Auditory dataset...');
 urlwrite('http://www.fil.ion.ucl.ac.uk/spm/download/data/MoAEpilot/MoAEpilot.zip','MoAEpilot.zip');
 unzip(fullfile(data_path,'MoAEpilot.zip'));
 fprintf(' %30s\n', '...done');
+
+%%
+%(TL) add path to spm and cd into directory contraining Auditory data
+whichComp=1;
+
+if whichComp==1
+    spmPath='/Users/ttli/Dropbox/spm12';
+    data_path='/Users/ttli/Dropbox/Mac (2)/Documents/GitHub/NMDA23/data/auditory';
+elseif whichComp==2
+    spmPath='/Users/USERNAME/WHERE/spm12';
+    data_path='ADD';
+elseif whichComp==3 
+    spmPath='/Users/USERNAME/WHERE/spm12';
+    data_path='ADD';
+else
+    spmPath='/Users/USERNAME/WHERE/spm12';
+    data_path='ADD';
+end
+cd(data_path)
+addpath(spmPath)
+
+%%
 
 % Initialise SPM
 %--------------------------------------------------------------------------
@@ -24,6 +49,7 @@ spm('Defaults','fMRI');
 spm_jobman('initcfg');
 % spm_get_defaults('cmdline',true);
 
+%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PREAMBLE: DUMMY SCANS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
