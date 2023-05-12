@@ -1,4 +1,4 @@
- % This batch script analyses the Auditory fMRI dataset available from the 
+% This batch script analyses the Auditory fMRI dataset available from the 
 % SPM website:
 %   http://www.fil.ion.ucl.ac.uk/spm/data/auditory/
 % as described in the SPM manual:
@@ -22,21 +22,21 @@ unzip(fullfile(data_path,'MoAEpilot.zip'));
 fprintf(' %30s\n', '...done');
 
 %%
-%(TL) add path to spm directory 
-whichComp=1;
+%(TL) add path to spm and cd into directory contraining Auditory data
+whichComp=3;
 
 if whichComp==1
     spmPath='/Users/ttli/Dropbox/spm12';
-    %data_path='/Users/ttli/Documents/GitHub/NMDA23/data/auditory';
+    data_path='/Users/ttli/Dropbox/Mac (2)/Documents/GitHub/NMDA23/data/auditory';
 elseif whichComp==2
     spmPath='/Users/USERNAME/WHERE/spm12';
-    %data_path='ADD';
+    data_path='ADD';
 elseif whichComp==3 
-    spmPath='/Users/USERNAME/WHERE/spm12';
-    %data_path='ADD';
+    spmPath='/Users/lp1/Documents/spm12';
+    data_path='/Users/lp1/Documents/GitHub/NMDA23/data/auditory/MoAEpilot';
 else
     spmPath='/Users/USERNAME/WHERE/spm12';
-    %data_path='ADD';
+    data_path='ADD';
 end
 cd(data_path)
 addpath(spmPath)
@@ -70,7 +70,7 @@ spm_jobman('run',matlabbatch);
 % SPATIAL PREPROCESSING
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-f = spm_select('FPList', fullfile(data_path,'fM00223'), '^f.*\.img$');
+f = spm_select('FPList', fullfile(data_path,'fM00223'), '^f.*\.img$'); % gives the full path of all data files 
 a = spm_select('FPList', fullfile(data_path,'sM00223'), '^s.*\.img$');
 
 clear matlabbatch
@@ -78,7 +78,18 @@ clear matlabbatch
 % Realign
 %--------------------------------------------------------------------------
 matlabbatch{1}.spm.spatial.realign.estwrite.data = {cellstr(f)};
+% mmatlabbatch{1}.spm.spatial.realign.estwrite.eoptions.quality = 0.9;
+% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.sep = 4;
+% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.fwhm = 5;
+% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.rtm = 1;
+% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.interp = 2;
+% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.wrap = [0 0 0];
+% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.weight = '';
 matlabbatch{1}.spm.spatial.realign.estwrite.roptions.which = [0 1];
+% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.interp = 4;
+% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.wrap = [0 0 0];
+% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.mask = 1;
+% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.prefix = 'r';
 
 % Coregister
 %--------------------------------------------------------------------------
