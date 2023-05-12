@@ -27,13 +27,13 @@ whichComp=3;
 
 if whichComp==1
     spmPath='/Users/ttli/Dropbox/spm12';
-    data_path='/Users/ttli/Dropbox/Mac (2)/Documents/GitHub/NMDA23/data/auditory';
+    data_path='/Users/ttli/Dropbox/Mac (2)/Documents/GitHub/NMDA23/fMRI_data';
 elseif whichComp==2
     spmPath='/Users/USERNAME/WHERE/spm12';
     data_path='ADD';
 elseif whichComp==3 
     spmPath='/Users/lp1/Documents/spm12';
-    data_path='/Users/lp1/Documents/GitHub/NMDA23/data/auditory/MoAEpilot';
+    data_path='/Users/lp1/Documents/GitHub/NMDA23/fMRI_data';
 else
     spmPath='/Users/USERNAME/WHERE/spm12';
     data_path='ADD';
