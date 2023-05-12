@@ -1,11 +1,9 @@
 # NMDA23
-This is the Repository for the Neurocognitive Methods and Data Analysis seminar in the summer semester of 2023 from the Free University of Berlin. 
+This is the Repository for the Neurocognitive Methods and Data Analysis seminar of Group 4 in the summer semester of 2023 from the Free University of Berlin. Contributors are: Anastasia Asmolova, Kubra Fatullayeva, Tiantian Li, Lisa Paulsen
 
-GROUP 4 skills   Programming;   Team coordination;	EEG/MRI;
+To Dos NMDA 
 
-TiantianLi:	            4	            1	           2
-LisaPaulsen:	        2	            5	           2
-KubraFatullayeva:	    2	            3	           1
-AnastasiiaAsmolova:	    2	            4	           3
-
-Group total:		    10	            13	           8
+- Make the preprocessing scripts; Normalisation Coregistration 
+- Adjust them so they are transferable (splitting Pre-Processing and GLM) 
+- Create a Master Script 
+- Understand the options and parameters
