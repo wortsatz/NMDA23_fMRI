@@ -101,8 +101,6 @@ matlabbatch{1}.spm.spatial.realign.estwrite.roptions.which = [0 1];
 spm_jobman('run',matlabbatch);
 
 % Coregister
-% data
-nrun = 1; % enter the number of runs here
 %--------------------------------------------------------------------------
 %--------------------------------------------------------------------------
 % initialize the parameters for the coregistration
