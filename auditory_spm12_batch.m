@@ -100,7 +100,7 @@ matlabbatch{1}.spm.spatial.realign.estwrite.roptions.which = [0 1];
 % matlabbatch{1}.spm.spatial.realign.estwrite.roptions.wrap = [0 0 0];
 % matlabbatch{1}.spm.spatial.realign.estwrite.roptions.mask = 1;
 % matlabbatch{1}.spm.spatial.realign.estwrite.roptions.prefix = 'r';
-
+spm_jobman('run', jobs, inputs{:});
 % Coregister
 %--------------------------------------------------------------------------
 
@@ -113,7 +113,7 @@ matlabbatch{2}.spm.spatial.coreg.estimate.source = cellstr(a);
 % matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.sep = [4 2];
 % matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.tol = [0.02 0.02 0.02 0.001 0.001 0.001 0.01 0.01 0.01 0.001 0.001 0.001];
 % matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.fwhm = [7 7];
-
+spm_jobman('run', jobs, inputs{:});
 % Segment
 %--------------------------------------------------------------------------
 
