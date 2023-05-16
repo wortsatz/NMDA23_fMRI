@@ -104,12 +104,6 @@ spm_jobman('run',matlabbatch);
 % data
 nrun = 1; % enter the number of runs here
 %--------------------------------------------------------------------------
-% Modify the jobfile path based on your script's location
-jobfile = {fullfile(data_path, 'jobs', 'coregistration_job.m')};
-jobs = repmat(jobfile, 1, nrun);
-inputs = cell(0, nrun);
-for crun = 1:nrun
-end
 %--------------------------------------------------------------------------
 % initialize the parameters for the coregistration
 
