@@ -97,8 +97,8 @@ matlabbatch{1}.spm.spatial.realign.estwrite.roptions.which = [0 1];
 % matlabbatch{1}.spm.spatial.realign.estwrite.roptions.wrap = [0 0 0];
 % matlabbatch{1}.spm.spatial.realign.estwrite.roptions.mask = 1;
 % matlabbatch{1}.spm.spatial.realign.estwrite.roptions.prefix = 'r';
-% Run
-spm_jobman('run',matlabbatch);
+
+
 
 % Coregister
 %--------------------------------------------------------------------------
@@ -107,13 +107,13 @@ spm_jobman('run',matlabbatch);
 
 matlabbatch{2}.spm.spatial.coreg.estimate.ref    = cellstr(spm_file(f(1,:),'prefix','mean'));
 matlabbatch{2}.spm.spatial.coreg.estimate.source = cellstr(a);
-% matlabbatch{1}.spm.spatial.coreg.estimate.other = {''};
-% matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.cost_fun = 'nmi';
-% matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.sep = [4 2];
-% matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.tol = [0.02 0.02 0.02 0.001 0.001 0.001 0.01 0.01 0.01 0.001 0.001 0.001];
-% matlabbatch{1}.spm.spatial.coreg.estimate.eoptions.fwhm = [7 7];
-% Run
-spm_jobman('run',matlabbatch);
+% matlabbatch{2}.spm.spatial.coreg.estimate.other = {''};
+% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.cost_fun = 'nmi';
+% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.sep = [4 2];
+% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.tol = [0.02 0.02 0.02 0.001 0.001 0.001 0.01 0.01 0.01 0.001 0.001 0.001];
+% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.fwhm = [7 7];
+
+
 % Segment
 %--------------------------------------------------------------------------
 
