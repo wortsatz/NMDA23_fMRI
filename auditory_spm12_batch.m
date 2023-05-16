@@ -157,7 +157,7 @@ matlabbatch{3}.spm.spatial.preproc.warp.write = [0 1];
 % matlabbatch{1}.spm.spatial.preproc.warp.vox = NaN;
 % matlabbatch{1}.spm.spatial.preproc.warp.bb = [NaN NaN NaN
 %                                               NaN NaN NaN];
-
+spm_jobman('run',matlabbatch);
 % Normalise: Write
 %--------------------------------------------------------------------------
 
@@ -177,7 +177,7 @@ matlabbatch{4}.spm.spatial.normalise.write.woptions.vox  = [3 3 3];
 matlabbatch{5}.spm.spatial.normalise.write.subj.def      = cellstr(spm_file(a,'prefix','y_','ext','nii'));
 matlabbatch{5}.spm.spatial.normalise.write.subj.resample = cellstr(spm_file(a,'prefix','m','ext','nii'));
 matlabbatch{5}.spm.spatial.normalise.write.woptions.vox  = [1 1 3];
-
+spm_jobman('run',matlabbatch);
 % Smooth
 %--------------------------------------------------------------------------
 
