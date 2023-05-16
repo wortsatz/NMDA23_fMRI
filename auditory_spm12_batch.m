@@ -31,8 +31,8 @@ if whichComp==1
     spmPath='/Users/ttli/Dropbox/spm12';
     data_path='/Users/ttli/Dropbox/Mac (2)/Documents/GitHub/NMDA23/fMRI_data';
 elseif whichComp==2
-    spmPath='/Users/USERNAME/WHERE/spm12';
-    data_path='ADD';
+    spmPath='/Users/kubrafatulla/Documents/spm12';
+    data_path='/Users/kubrafatulla/Documents/fMRI/MoAEpilot/';
 elseif whichComp==3 
     spmPath='/Users/lp1/Documents/spm12';
     data_path='/Users/lp1/Nextcloud/FU/NMDA_data';
