@@ -1,4 +1,4 @@
-function [matlabbatch] = smooting(f)
+function [matlabbatch] = smoothing(f)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 matlabbatch{6}.spm.spatial.smooth.data = cellstr(spm_file(f,'prefix','w'));
