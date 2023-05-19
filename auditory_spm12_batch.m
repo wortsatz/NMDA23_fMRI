@@ -37,8 +37,8 @@ elseif whichComp==3
     spmPath='/Users/lp1/Documents/spm12';
     data_path='/Users/lp1/Nextcloud/FU/NMDA_data';
 else
-    spmPath='/Users/USERNAME/WHERE/spm12';
-    data_path='ADD';
+    spmPath='/Users/Nastya/программы/spm12';
+    data_path='/Users/Nastya/Documents/Freie Universitat/NMDA';
 end
 cd(data_path)
 addpath(spmPath)
