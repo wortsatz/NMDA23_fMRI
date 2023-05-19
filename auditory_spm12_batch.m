@@ -128,7 +128,7 @@ matlabbatch{5} = n{5};
 %--------------------------------------------------------------------------
 % Smooth
 % initialize the parameters for the smoothing
-sm = smooting(f);
+sm = smoothing(f);
 matlabbatch{6} = sm{6};
 %--------------------------------------------------------------------------
 %%
