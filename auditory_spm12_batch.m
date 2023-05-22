@@ -81,7 +81,7 @@ f = spm_select('FPList', fullfile(data_path,'fM00223'), '^f.*\.img$'); % gives t
 a = spm_select('FPList', fullfile(data_path,'sM00223'), '^s.*\.img$');
 
 clear matlabbatch
-
+%--------------------------------------------------------------------------
 % Realign
 % initialize the parameters for the realignment
 r = realignment(f);
