@@ -84,36 +84,14 @@ clear matlabbatch
 
 % Realign
 % initialize the parameters for the realignment
-matlabbatch{1}.spm.spatial.realign.estwrite.data = {cellstr(f)};
-% mmatlabbatch{1}.spm.spatial.realign.estwrite.eoptions.quality = 0.9; % Highest quality (1) gives most precise results, whereas lower qualities gives faster realignment.
-% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.sep = 4; % The separation (in mm) between the points sampled in the reference image. Smaller sampling distances gives more accurate results, but will be slower.
-% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.fwhm = 5; % The FWHM of the Gaussian smoothing kernel (mm) applied to the images before estimating the realignment parameters.
-% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.rtm = 1; % Register to first: Images are registered to the first image in the series. Register to mean: A two pass procedure is used in order to register the images to the mean of the images after the first realignment
-% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.interp = 2;
-% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.wrap = [0 0 0];
-% matlabbatch{1}.spm.spatial.realign.estwrite.eoptions.weight = '';
-matlabbatch{1}.spm.spatial.realign.estwrite.roptions.which = [0 1];
-% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.interp = 4;
-% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.wrap = [0 0 0];
-% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.mask = 1;
-% matlabbatch{1}.spm.spatial.realign.estwrite.roptions.prefix = 'r';
-
-
-
+r = realignment(f);
+matlabbatch{1} = r{1};
+%--------------------------------------------------------------------------
 % Coregister
 %--------------------------------------------------------------------------
-%--------------------------------------------------------------------------
 % initialize the parameters for the coregistration
-
-matlabbatch{2}.spm.spatial.coreg.estimate.ref    = cellstr(spm_file(f(1,:),'prefix','mean'));
-matlabbatch{2}.spm.spatial.coreg.estimate.source = cellstr(a);
-% matlabbatch{2}.spm.spatial.coreg.estimate.other = {''};
-% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.cost_fun = 'nmi';
-% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.sep = [4 2];
-% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.tol = [0.02 0.02 0.02 0.001 0.001 0.001 0.01 0.01 0.01 0.001 0.001 0.001];
-% matlabbatch{2}.spm.spatial.coreg.estimate.eoptions.fwhm = [7 7];
-
-
+c = coregistration(a);
+matlabbatch{2} = c{2};
 %--------------------------------------------------------------------------
 % Segment
 % initialize the parameters for the segmentation
