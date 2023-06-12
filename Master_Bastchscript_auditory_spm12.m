@@ -13,23 +13,29 @@ fprintf(' %30s\n', '...done');
 
  
 %% (TL) add path to spm and cd into directory contraining Auditory data
-whichComp=3;
+whichComp=1;
 
 if whichComp==1
-    spmPath='/Users/ttli/Dropbox/spm12';
-    data_path='/Users/ttli/Dropbox/Mac (2)/Documents/GitHub/NMDA23/fMRI_data';
+    spmPath='/Users/ttli/Dropbox/spm12/';
+    data_path='/Users/ttli/Documents/GitHub/NMDA23/98_fMRI_data';
+    project_path='/Users/ttli/Documents/GitHub/NMDA23/';
 elseif whichComp==2
     spmPath='/Users/kubrafatulla/Documents/spm12';
     data_path='/Users/kubrafatulla/Documents/fMRI/MoAEpilot/';
+    project_path='/Users/kubrafatulla/Documents/GitHub/NMDA23/';
 elseif whichComp==3 
     spmPath='/Users/lp1/Documents/spm12';
     data_path='/Users/lp1/Nextcloud/FU/NMDA_data';
+    project_path='/Users/lp1/Documents/GitHub/NMDA23/';
 else
     spmPath='/Users/Nastya/программы/spm12';
     data_path='/Users/Nastya/Documents/Freie Universitat/NMDA';
+    project_path='/Users/Nastya/Documents/GitHub/NMDA23/';
 end
 cd(data_path)
 addpath(spmPath)
+addpath(project_path)
+
 
 %%
 
@@ -113,29 +119,29 @@ clear matlabbatch
 % Realign
 % initialize the parameters for the realignment
 r = realignment(f);
-matlabbatch{1} = r{1};
+matlabbatch{1} = r;
 %--------------------------------------------------------------------------
 % Coregister
 %--------------------------------------------------------------------------
 % initialize the parameters for the coregistration
 c = coregistration(a);
-matlabbatch{2} = c{2};
+matlabbatch{2} = c;
 %--------------------------------------------------------------------------
 % Segment
 % initialize the parameters for the segmentation
 s = segmentation(a);
-matlabbatch{3} = s{3}; 
+matlabbatch{3} = s; 
 %--------------------------------------------------------------------------
 % Normalise: Write
 % initialize the parameters for the normalization
-n = normalization(a, f);
-matlabbatch{4} = n{4};
-matlabbatch{5} = n{5};
+[F,S] = normalization(a, f);
+matlabbatch{4} = F;
+matlabbatch{5} = S;
 %--------------------------------------------------------------------------
 % Smooth
 % initialize the parameters for the smoothing
 sm = smoothing(f);
-matlabbatch{6} = sm{6};
+matlabbatch{6} = sm;
 %--------------------------------------------------------------------------
 %%
  %Job script 
