@@ -1,16 +1,4 @@
-% This batch script analyses the Auditory fMRI dataset available from the 
-% SPM website:
-%   http://www.fil.ion.ucl.ac.uk/spm/data/auditory/
-% as described in the SPM manual:
-%   http://www.fil.ion.ucl.ac.uk/spm/doc/manual.pdf#Chap:data:auditory
-%__________________________________________________________________________
-% Copyright (C) 2014 Wellcome Trust Centre for Neuroimaging
-
-% Guillaume Flandin
-% $Id: auditory_spm12_batch.m 8 2014-09-29 18:11:56Z guillaume $
-
-% Directory containing the Auditory data
-
+% Master Batch Script
 
 % =================== SAVE AND ACCESS THE DATA ======================
 
