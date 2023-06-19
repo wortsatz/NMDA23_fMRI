@@ -3,7 +3,7 @@ function [matlabbatch] = coregistration(a)
 
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-matlabbatch.spm.spatial.coreg.estimate.ref    = cellstr(spm_file(a(1,:),'prefix','mean'));
+matlabbatch.spm.spatial.coreg.estimate.ref    = cellstr(a(1,:));
 matlabbatch.spm.spatial.coreg.estimate.source = cellstr(a);
 matlabbatch.spm.spatial.coreg.estimate.other = {''};
 matlabbatch.spm.spatial.coreg.estimate.eoptions.cost_fun = 'nmi';
