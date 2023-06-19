@@ -2,7 +2,9 @@
 
 % =================== SAVE AND ACCESS THE DATA ======================
 
-%% (TL) if you have github local directory set up then you don't need to run this first cell
+%% (TL) if you have github local directory set up 
+% then you don't need to run this first cell
+% **** SKIP *****
 %--------------------------------------------------------------------------
 data_path = fileparts(mfilename('fullpath'));
 if isempty(data_path), data_path = pwd; end %(TL) just navigate to github NMDA23 folder 
@@ -13,10 +15,12 @@ fprintf(' %30s\n', '...done');
 
  
 %% (TL) add path to spm and cd into directory contraining Auditory data
+clc
+clear
 whichComp=1;
 
 if whichComp==1
-    spmPath='/Users/ttli/Dropbox/spm12/';
+    spmPath='/Users/ttli/Documents/spm12/';
     data_path='/Users/ttli/Documents/GitHub/NMDA23/98_fMRI_data';
     project_path='/Users/ttli/Documents/GitHub/NMDA23/';
 elseif whichComp==2
@@ -33,8 +37,8 @@ else
     project_path='/Users/Nastya/Documents/GitHub/NMDA23/';
 end
 cd(data_path)
-addpath(spmPath)
-addpath(project_path)
+addpath((spmPath))
+addpath(genpath(project_path))
 
 
 %%
@@ -50,6 +54,8 @@ spm_jobman('initcfg');
 %% PREAMBLE: DUMMY SCANS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% **** SKIP *****
+% don't need to run this part either 
 % this excludes the first session a priori and puts the excluded images
 % into the dummy folder
 
@@ -129,7 +135,7 @@ matlabbatch{2} = c;
 %--------------------------------------------------------------------------
 % Segment
 % initialize the parameters for the segmentation
-s = segmentation(a);
+s = segmentation(spmPath,a);
 matlabbatch{3} = s; 
 %--------------------------------------------------------------------------
 % Normalise: Write
