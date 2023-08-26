@@ -1,7 +1,6 @@
 
 function [matlabbatch] = realignment(f)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+
 matlabbatch.spm.spatial.realign.estwrite.data = {cellstr(f)};
 matlabbatch.spm.spatial.realign.estwrite.eoptions.quality = 0.9; 
 matlabbatch.spm.spatial.realign.estwrite.eoptions.sep = 4; 
