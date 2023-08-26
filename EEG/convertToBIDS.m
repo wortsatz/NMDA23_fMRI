@@ -1,8 +1,13 @@
-sub = {'1'};
+
 data_path='/Users/ttli/Dropbox/FreieU/EEG_dat/';
 FT_path='/Users/ttli/Dropbox/fieldtrip-20230118/';
 
 addpath(genpath(FT_path))
+
+sub = {'1'};
+age = [11];
+sex = {'f'};
+
 
 for subindx=1:numel(sub)
 
@@ -18,7 +23,12 @@ for subindx=1:numel(sub)
   % specify the output directory
   cfg.bidsroot  = 'bids';
   cfg.sub       = sub{subindx};
+  
 
+  % specify the information for the participants.tsv file
+  % this is optional, you can also pass other pieces of info
+  cfg.participants.age = age(subindx);
+  cfg.participants.sex = sex{subindx};
 
   % specify the information for the scans.tsv file
   % this is optional, you can also pass other pieces of info
