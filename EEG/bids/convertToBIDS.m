@@ -1,3 +1,6 @@
+%% ===================== EEG TO BIDS SCRIPT ==============================
+
+%% Path and Parameters
 
 data_path='/Users/ttli/Dropbox/FreieU/EEG_dat/';
 FT_path='/Users/ttli/Dropbox/fieldtrip-20230118/';
@@ -8,6 +11,7 @@ sub = {'1'};
 age = [11];
 sex = {'f'};
 
+%% Conversion 
 
 for subindx=1:numel(sub)
 
