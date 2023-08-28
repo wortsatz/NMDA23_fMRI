@@ -7,22 +7,19 @@
 
 % this script uses .bdf for now - a extension for BIDS is in the works
 
-data_file = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/subject1.bdf';
-sens_file = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/sensors.pol';
-montage_file = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/avref_eog_montage.mat';
-trialdef_file = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/trialdef.mat';
+data_path = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/subject1.bdf';
+sensor_path = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/sensors.pol';
+montage_path = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/avref_eog_montage.mat';
+trialdef_path = '/Users/lp1/Documents/GitHub/NMDA23/EEG/SPM/trialdef.mat';
 spmdir = '/Users/lp1/Documents/spm12';
 
 % add data and SPM patht to the Matlab dir
-addpath(genpath(data_file), genpath(spmdir));
+addpath(genpath(data_path), genpath(spmdir));
 
 %% ------------------------ Set Basic Parameters --------------------------
 
 % Number of Subj
 sub = 1;
-
-% Number of runs
-run = 1;
 
 % Here you clarify which Preprocessing steps you want to take
 % 1 = Montage
@@ -41,7 +38,7 @@ ft_defaults;
 for s = 1:numel(sub)
     % Load data
     cfg = [];
-    cfg.dataset = data_file;
+    cfg.dataset = data_path;
     data = ft_preprocessing(cfg);
 
     for n = prepro_switch
@@ -51,7 +48,7 @@ for s = 1:numel(sub)
                 % Device 
 
                 % Load & Apply montage to the channels
-                load(montage_file);
+                load(montage_path);
                 cfg = [];
                 cfg.montage.labelnew = montage.labelnew;
                 cfg.montage.labelorg = montage.labelorg;
@@ -60,7 +57,7 @@ for s = 1:numel(sub)
                 data = ft_preprocessing(cfg, data);
 
                 % Load sensor layout and add channal labels 
-                cfg.layout = sens_file;
+                cfg.layout = sensor_path;
                 layout = ft_prepare_layout(cfg);
                 channel_labels = layout.label;
 
@@ -93,7 +90,7 @@ for s = 1:numel(sub)
             case 5 % Epoching
                 % Epoch the data around the trials and save the epochs
 
-                trialdef = load(trialdef_file);
+                trialdef = load(trialdef_path);
                 cfg = [];
                 cfg.trl = trialdef.trl;
                 data = ft_redefinetrial(cfg, data);
